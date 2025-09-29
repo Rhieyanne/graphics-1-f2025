@@ -112,16 +112,18 @@ int main()
     {
         if (IsKeyPressed(KEY_ESCAPE))
             SetWindowShouldClose(true);
-
-        // Colors are represented as fractions between 0.0 and 1.0, so convert using a colour-picker tool accordingly!
-        float r = 239.0f / 255.0f;
-        float g = 136.0f / 255.0f;
-        float b = 190.0f / 255.0f;
-        float a = 1.0f;
-
         // Time in seconds since GLFW was initialized (use this with functions like sinf and cosf for repeating animations)
         float tt = Time();
 
+        // Colors are represented as fractions between 0.0 and 1.0, so convert using a colour-picker tool accordingly!
+		float r = (sinf(tt) + 0.5f) / 0.5f;
+		float g = (cosf(tt) + 0.5f) / 0.5f;
+		float b = 0.5f;
+        float a = 1.0f;
+
+        
+
+        
         /* Render here */
         glClearColor(r, g, b, a);
         glClear(GL_COLOR_BUFFER_BIT);
@@ -144,7 +146,7 @@ int main()
             glDrawArrays(GL_TRIANGLES, 0, 3);
             break;
 
-        case 1:
+        case 1: // White Triangle
             glUseProgram(a1_tri_shader);
             glUniform3f(u_color, 0.8, 0.8f, 0.8f);
             glUniformMatrix4fv(u_world, 1, GL_FALSE, MatrixToFloat(world));
@@ -152,7 +154,7 @@ int main()
             glDrawArrays(GL_TRIANGLES, 0, 3);
             break;
 
-        case 2:
+		case 2: // Rainbow Triangle
             glUseProgram(a1_tri_shader);
             glUniform3f(u_color, 0.6, 0.6f, 0.6f);
             glUniformMatrix4fv(u_world, 1, GL_FALSE, MatrixToFloat(world));
