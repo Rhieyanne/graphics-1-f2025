@@ -138,7 +138,7 @@ int main()
 
         switch (object_index)
         {
-        case 0: // White Triangle
+        case 0: // A1 OBJECT 1: White Triangle
             glUseProgram(a1_tri_shader);
             glUniform3f(u_color, 1.0f, 1.0f, 1.0f);
 
@@ -149,7 +149,7 @@ int main()
             glDrawArrays(GL_TRIANGLES, 0, 3);
             break;
 
-        case 1: // Rainbow Triangle
+        case 1: // A1 OBJECT 2: Rainbow Triangle
             glUseProgram(a1_tri_shader);
             glUniform3f(u_color, 0.8, 0.8f, 0.8f);
             glUniformMatrix4fv(u_world, 1, GL_FALSE, MatrixToFloat(world));
@@ -157,7 +157,7 @@ int main()
             glDrawArrays(GL_TRIANGLES, 0, 3);
             break;
 
-		case 2: 
+		case 2:  // A1 OBJECT 3: Oscillating Colour Triangle 
             glUseProgram(a1_tri_shader);
             glUniform3f(u_color, rt, gt, bt);
             glUniformMatrix4fv(u_world, 1, GL_FALSE, MatrixToFloat(world));
