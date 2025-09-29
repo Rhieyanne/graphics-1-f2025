@@ -7,6 +7,7 @@
 #include <ctime>
 
 // Time to do a switch case to toggle between different objects
+
 struct Vertex
 {
     Vector2 pos;   // offset of 0
@@ -16,9 +17,9 @@ struct Vertex
 // Assignment 1 object 1 -- white triangle (change these vertex colours from red to white)!!!
 static const Vertex vertices_white[3] =
 {
-    { { -0.6f, -0.4f }, { 1.0f, 0.0f, 0.0f } },
-    { {  0.6f, -0.4f }, { 1.0f, 0.0f, 0.0f } },
-    { {   0.f,  0.6f }, { 1.0f, 0.0f, 0.0f } }
+    { { -0.6f, -0.4f }, { 1.0f, 1.0f, 1.0f } },
+    { {  0.6f, -0.4f }, { 1.0f, 1.0f, 1.0f } },
+    { {   0.f,  0.6f }, { 1.0f, 1.0f, 1.0f } }
 };
 
 // Assignment 1 object 2 -- rainbow triangle (done for you)
