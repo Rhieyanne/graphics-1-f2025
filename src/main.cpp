@@ -103,6 +103,7 @@ int main()
     GLint u_world = glGetUniformLocation(a1_tri_shader, "u_world");
 
     Matrix world = world = MatrixIdentity();
+	Matrix worldxtranslate = MatrixIdentity();
 
     // Generally you want to Scale * Rotate * Translate (order matters)!!!
     world = MatrixRotateZ(30.0f * DEG2RAD) * MatrixTranslate(0.5f, 0.0f, 0.0f);
@@ -124,8 +125,9 @@ int main()
 		float bt = 0.5f;
         float a = 1.0f;
 
-        
-
+		// If we want to move it back and forth between -1 and 1, we can use sin
+		float translate = sinf(tt);
+		worldxtranslate = MatrixTranslate(translate, 0.0f, 0.0f);
         
         /* Render here */
         glClearColor(r, g, b, a);
@@ -165,10 +167,10 @@ int main()
             glDrawArrays(GL_TRIANGLES, 0, 3);
             break;
 
-		case 3:
+		case 3: // A1 OBJECT 4: A triangle that translates back and forth from x = 1 to x = -1.
             glUseProgram(a1_tri_shader);
             glUniform3f(u_color, r, g, b);
-            glUniformMatrix4fv(u_world, 1, GL_FALSE, MatrixToFloat(world));
+            glUniformMatrix4fv(u_world, 1, GL_FALSE, MatrixToFloat(worldxtranslate));
             glBindVertexArray(vertex_array_rainbow);
             glDrawArrays(GL_TRIANGLES, 0, 3);
             break;
