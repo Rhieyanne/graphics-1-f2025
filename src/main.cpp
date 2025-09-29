@@ -162,9 +162,9 @@ int main()
             glDrawArrays(GL_TRIANGLES, 0, 3);
             break;
 
-        case 3:
+		case 3:// Should change the colors from 0-1 to the r, g, b values above but it doesnt work
             glUseProgram(a1_tri_shader);
-            glUniform3f(u_color, 0.4, 0.4f, 0.4f);
+            glUniform3f(u_color, r, g, b);
             glUniformMatrix4fv(u_world, 1, GL_FALSE, MatrixToFloat(world));
             glBindVertexArray(vertex_array_rainbow);
             glDrawArrays(GL_TRIANGLES, 0, 3);
