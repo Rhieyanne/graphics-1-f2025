@@ -104,6 +104,7 @@ int main()
 
     Matrix world = world = MatrixIdentity();
 	Matrix worldxtranslate = MatrixIdentity();
+	Matrix worldrotate = MatrixIdentity();
 
     // Generally you want to Scale * Rotate * Translate (order matters)!!!
     world = MatrixRotateZ(30.0f * DEG2RAD) * MatrixTranslate(0.5f, 0.0f, 0.0f);
@@ -128,7 +129,8 @@ int main()
 		// If we want to move it back and forth between -1 and 1, we can use sin
 		float translate = sinf(tt);
 		worldxtranslate = MatrixTranslate(translate, 0.0f, 0.0f);
-        
+		worldrotate = MatrixRotateZ(tt);
+
         /* Render here */
         glClearColor(r, g, b, a);
         glClear(GL_COLOR_BUFFER_BIT);
@@ -175,10 +177,10 @@ int main()
             glDrawArrays(GL_TRIANGLES, 0, 3);
             break;
 
-        case 4:
+		case 4: // A1 OBJECT 5: A triangle that rotates continuously
             glUseProgram(a1_tri_shader);
             glUniform3f(u_color, 0.5, 0.5f, 0.5f);
-            glUniformMatrix4fv(u_world, 1, GL_FALSE, MatrixToFloat(world));
+            glUniformMatrix4fv(u_world, 1, GL_FALSE, MatrixToFloat(worldrotate));
             glBindVertexArray(vertex_array_rainbow);
             glDrawArrays(GL_TRIANGLES, 0, 3);
             break;
