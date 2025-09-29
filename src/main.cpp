@@ -116,9 +116,12 @@ int main()
         float tt = Time();
 
         // Colors are represented as fractions between 0.0 and 1.0, so convert using a colour-picker tool accordingly!
-		float r = (sinf(tt) + 0.5f) / 0.5f;
-		float g = (cosf(tt) + 0.5f) / 0.5f;
-		float b = 0.5f;
+        float r = 239.0f / 255.0f;
+        float g = 136.0f / 255.0f;
+	    float b = 190.0f / 255.0f;
+		float rt = (sinf(tt) + 0.5f) / 0.5f;
+		float gt = (cosf(tt) + 0.5f) / 0.5f;
+		float bt = 0.5f;
         float a = 1.0f;
 
         
@@ -156,7 +159,7 @@ int main()
 
 		case 2: 
             glUseProgram(a1_tri_shader);
-            glUniform3f(u_color, r, g, b);
+            glUniform3f(u_color, rt, gt, bt);
             glUniformMatrix4fv(u_world, 1, GL_FALSE, MatrixToFloat(world));
             glBindVertexArray(vertex_array_white);
             glDrawArrays(GL_TRIANGLES, 0, 3);
