@@ -135,7 +135,7 @@ int main()
 
         switch (object_index)
         {
-        case 0:
+        case 0: // White Triangle
             glUseProgram(a1_tri_shader);
             glUniform3f(u_color, 1.0f, 1.0f, 1.0f);
 
@@ -146,7 +146,7 @@ int main()
             glDrawArrays(GL_TRIANGLES, 0, 3);
             break;
 
-        case 1: // White Triangle
+        case 1: // Rainbow Triangle
             glUseProgram(a1_tri_shader);
             glUniform3f(u_color, 0.8, 0.8f, 0.8f);
             glUniformMatrix4fv(u_world, 1, GL_FALSE, MatrixToFloat(world));
@@ -154,15 +154,15 @@ int main()
             glDrawArrays(GL_TRIANGLES, 0, 3);
             break;
 
-		case 2: // Rainbow Triangle
+		case 2: 
             glUseProgram(a1_tri_shader);
-            glUniform3f(u_color, 0.6, 0.6f, 0.6f);
+            glUniform3f(u_color, r, g, b);
             glUniformMatrix4fv(u_world, 1, GL_FALSE, MatrixToFloat(world));
-            glBindVertexArray(vertex_array_rainbow);
+            glBindVertexArray(vertex_array_white);
             glDrawArrays(GL_TRIANGLES, 0, 3);
             break;
 
-		case 3:// Should change the colors from 0-1 to the r, g, b values above but it doesnt work
+		case 3:
             glUseProgram(a1_tri_shader);
             glUniform3f(u_color, r, g, b);
             glUniformMatrix4fv(u_world, 1, GL_FALSE, MatrixToFloat(world));
