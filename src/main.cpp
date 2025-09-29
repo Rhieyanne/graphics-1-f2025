@@ -6,6 +6,7 @@
 #include <cstdio>
 #include <ctime>
 
+// Time to do a switch case to toggle between different objects
 struct Vertex
 {
     Vector2 pos;   // offset of 0
