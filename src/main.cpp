@@ -11,7 +11,10 @@
 // Hint: if 1 square is 8 vertices, and Assignment 2 requires you to render 8 squares, then 8 squares * 8 vertices per square = 64 vertices;
 // (Consider reserving 64 vertices worth of space if you'd like to fit all your positions in a single vertex array)
 
+// Lets get 8 squares drawn using lines
+static const int squares = 8;
 static const int line_vertex_count = 8;
+static const int totalverts = squares * line_vertex_count;
 static const Vector2 line_vertex_positions[line_vertex_count]
 {
     { -1.0f,  -1.0f },   // bottom-left
@@ -27,9 +30,14 @@ static const Vector2 line_vertex_positions[line_vertex_count]
     { -1.0f,  -1.0f }    // bottom-left
 };
 
+static void generatenextSquare(const Vector2 last[totalverts], Vector2 next[totalverts])
+{
+    
+}
+
 int main()
 {
-    // How to form the vertices for the 2nd square:
+    /*How to form the vertices for the 2nd square :
     Vector2 line_vertex_positions2[8];
 
     line_vertex_positions2[0] = Vector2Lerp(line_vertex_positions[0], line_vertex_positions[1], 0.5f);
@@ -42,7 +50,12 @@ int main()
     line_vertex_positions2[5] = Vector2Lerp(line_vertex_positions[6], line_vertex_positions[7], 0.5f);
     
     line_vertex_positions2[6] = Vector2Lerp(line_vertex_positions[6], line_vertex_positions[7], 0.5f);
-    line_vertex_positions2[7] = Vector2Lerp(line_vertex_positions[0], line_vertex_positions[1], 0.5f);
+    line_vertex_positions2[7] = Vector2Lerp(line_vertex_positions[0], line_vertex_positions[1], 0.5f);*/ 
+	// We can use the same system to generate the 3rd, 4th, etc. squares by lerping between the previous square's vertices.
+    
+
+
+
     // (For full marks, you need to automate this with loops or recursion for 8 iterations [meaning 8 squares])
 
     CreateWindow(800, 800, "Graphics 1");
